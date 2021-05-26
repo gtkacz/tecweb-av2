@@ -1,0 +1,123 @@
+{% extends "stats/base.html" %}
+
+{% block content %}
+<div class="country-specific">
+<img src="{{country.flag_url_big}}" class="logo" />
+<em>{{country.name_pt}}</em>
+</div>
+
+{% comment %} <table class="styled-table">
+<thead>
+  <tr class='styled-tr'>
+    <th class='styled-th'>Rank</th>
+    <th class='styled-th'>População</th>
+
+    <th class='styled-th'>Total de casos</th>
+    <th class='styled-th'>Casos ativos</th>
+    <th class='styled-th'>Novos casos</th>
+    <th class='styled-th'>Casos por 1mi habitantes</th>
+
+    <th class='styled-th'>Total de mortos</th>
+    <th class='styled-th'>Novas mortes</th>
+    <th class='styled-th'>Mortes por 1mi habitantes</th>
+
+    <th class='styled-th'>Total de recuperados</th>
+    <th class='styled-th'>Novos recuperados</th>
+
+    <th class='styled-th'>Risco de infecção</th>
+    <th class='styled-th'>Taxa de mortalidade</th>
+    <th class='styled-th'>Taxa de recuperação</th>
+
+    <th class='styled-th'>Total de vacinados</th>
+    <th class='styled-th'>Taxa de vacinação</th>
+    <th class='styled-th'>Vacinados por 1mi habitantes</th>
+    <th class='styled-th'>Vacinados diários por 1mi habitantes</th>
+  </tr>
+  </thead>
+  <tbody class="styled-tbody">
+  <tr class='styled-tr'>
+    <td class='styled-td'>{{country.rank}}</td>
+    <td class='styled-td'>{{country.population}}</td>
+
+    <td class='styled-td'>{{country.total_cases}}</td>
+    <td class='styled-td'>{{country.active_cases}}</td>
+    <td class='styled-td'>{{country.new_cases}}</td>
+    <td class='styled-td'>{{country.cases_1m_pop}}</td>
+
+    <td class='styled-td'>{{country.total_deaths}}</td>
+    <td class='styled-td'>{{country.new_deaths}}</td>
+    <td class='styled-td'>{{country.deaths_1m_pop}}</td>
+
+    <td class='styled-td'>{{country.total_recovered}}</td>
+    <td class='styled-td'>{{country.new_recovered}}</td>
+
+    <td class='styled-td'>{{country.infection_risk}}</td>
+    <td class='styled-td'>{{country.case_fatality_rate}}</td>
+    <td class='styled-td'>{{country.recovery_proportion}}</td>
+
+    <td class='styled-td'>{{country.total_vaccinated}}</td>
+    <td class='styled-td'>{{country.vaccinated_proportion}}</td>
+    <td class='styled-td'>{{country.vaccinated_1m_pop}}</td>
+    <td class='styled-td'>{{country.daily_vaccinated_1m_pop}}</td>
+  </tr>
+  </tbody>
+</table> {% endcomment %}
+
+<table class="styled-table">
+<thead>
+  <tr>
+    <th>Rank</th>
+    <th>População</th>
+
+    <th>Total de casos</th>
+    <th>Casos ativos</th>
+    <th>Novos casos</th>
+    <th>Casos por 1mi habitantes</th>
+
+    <th>Total de mortos</th>
+    <th>Novas mortes</th>
+    <th>Mortes por 1mi habitantes</th>
+
+    <th>Total de recuperados</th>
+    <th>Novos recuperados</th>
+
+    <th>Risco de infecção</th>
+    <th>Taxa de mortalidade</th>
+    <th>Taxa de recuperação</th>
+
+    <th>Total de vacinados</th>
+    <th>Taxa de vacinação</th>
+    <th>Vacinados por 1mi habitantes</th>
+    <th>Vacinados diários por 1mi habitantes</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{country.rank}}</td>
+    <td>{{country.population}}</td>
+
+    <td>{{country.total_cases}}</td>
+    <td>{{country.active_cases}}</td>
+    <td>{{country.new_cases}}</td>
+    <td>{{country.cases_1m_pop}}</td>
+
+    <td>{{country.total_deaths}}</td>
+    <td>{{country.new_deaths}}</td>
+    <td>{{country.deaths_1m_pop}}</td>
+
+    <td>{{country.total_recovered}}</td>
+    <td>{{country.new_recovered}}</td>
+
+    <td>{{country.infection_risk}}</td>
+    <td>{{country.case_fatality_rate}}</td>
+    <td>{{country.recovery_proportion}}</td>
+
+    <td>{{country.total_vaccinated}}</td>
+    <td>{{country.vaccinated_proportion}}</td>
+    <td>{{country.vaccinated_1m_pop}}</td>
+    <td>{{country.daily_vaccinated_1m_pop}}</td>
+  </tr>
+  </tbody>
+</table>
+
+{% endblock %}

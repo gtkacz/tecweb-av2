@@ -1,0 +1,42 @@
+{% extends "stats/base.html" %}
+
+{% block content %}
+ <form action="action_page.php" class="form">
+  <div class="container">
+    <h2>Receba estatísticas atualizadas por email!</h2>
+    <p>Você receberá emails diariamente</p>
+  </div>
+
+  <div class="container">
+    <input type="text" placeholder="Nome" name="name">
+
+    <input type="text" placeholder="Email" name="mail" required>
+
+    <div class="container">
+    <p>Escolha o país do qual quer receber estatísticas por email</p>
+    <label>
+      <select id="countries" name="countries">
+        {% for country in countries %}
+        <option value="{{country.name}}">{{country.name_pt}}</option>
+        {% endfor %}
+      </select>
+    </label>
+    </div>
+
+    <label>
+      <input type="checkbox" checked="checked" name="subscribe"> Receber estatísticas mundiais
+    </label>
+
+    <p>Escolha até quando quer receber esta informação</p>
+    <label>
+        <input type="date" name="date" required>
+    </label>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <input type="submit" value="Se inscrever">
+  </div>
+</form> 
+{% endblock %}

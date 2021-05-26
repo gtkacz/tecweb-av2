@@ -1,0 +1,60 @@
+{% extends "stats/base.html" %}
+{% load static %}
+{% block content %}
+{% comment %} <p>Estatísticas sobre o COVID-19 atualizadas frequentemente</p> {% endcomment %}
+<p id="top" class="top">Estatísticas atualizadas em:<br>{{lastmodified.last_modified_data}}</p>
+
+{% comment %} <div class="icon-bar">
+  <a class="active" href="#"><i class="fa fa-home"></i></a>
+  <a href="#"><i class="fa fa-search"></i></a>
+  <a href="#"><i class="fa fa-envelope"></i></a>
+  <a href="#"><i class="fa fa-globe"></i></a>
+  <a href="#"><i class="fa fa-trash"></i></a>
+</div> {% endcomment %}
+
+{% comment %} <a id="button"></a> {% endcomment %}
+
+<table class="styled-table">
+<thead>
+  <tr>
+    <th><a href="/sortby=name" class="a-titulo">País<i class="sort-by-desc"></i></th>
+    <th><a href="/" class="a-titulo">Rank<i class="sort-by-desc"></i></th>
+    <th><a href="/sortby=-population" class="a-titulo">População<i class="sort-by-desc"></i></th>
+
+    <th><a href="/sortby=-total_cases" class="a-titulo">Total de casos<i class="sort-by-desc"></i></th>
+    <th><a href="/sortby=-active_cases" class="a-titulo">Casos ativos<i class="sort-by-desc"></i></th>
+
+    <th><a href="/sortby=-total_deaths" class="a-titulo">Total de mortos<i class="sort-by-desc"></i></th>
+    <th><a href="/sortby=-total_vaccinated" class="a-titulo">Total de vacinados<i class="sort-by-desc"></i></th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for country in countries %}
+  <tr>
+    <td name={{country.name}} class='texto-bandeira'><a href="/country/{{country.name}}" class="a"><img src="{{country.flag_url}}" class="logo"/>{{country.name_pt}}</td>
+    <td>{{country.rank}}</td>
+    <td>{{country.population}}</td>
+
+    <td>{{country.total_cases}}</td>
+    <td>{{country.active_cases}}</td>
+
+    <td>{{country.total_deaths}}</td>
+    <td>{{country.total_vaccinated}}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% comment %} <a id="back2Top" title="Back to top" href="#top">&#10148;</a> {% endcomment %}
+
+
+{% comment %} <a href="#top" class="cd-top text-replace js-cd-top">Top</a> {% endcomment %}
+
+{% comment %} <div class="back-to-top-wrapper">
+  <a href="#top" class="back-to-top-link" aria-label="Scroll to Top">🔝</a>
+</div> {% endcomment %}
+
+<button onclick="topFunction()" id="myBtn" title="Voltar para o topo">☝️</button>
+{% comment %} <button id="scrollToTopBtn" onclick="topFunction()" title="Go to top">☝️</button> {% endcomment %}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+azul (principal) - #002a43
+vermelho - #ed1019
+amarelo - #ffad01
+azul medio - #009de2
+verde - #55c32e
+azul claro - #90bad2
+azul escuro - #000e17
+
+alguns sites de referencia:
+https://covid19.who.int/ (mapa)
+https://www.worldometers.info/coronavirus/?utm_campaign=homeAdvegas1? (tabela)
