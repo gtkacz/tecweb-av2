@@ -2,6 +2,9 @@
 {% load static %}
 {% block content %}
 {% comment %} <p>Estatísticas sobre o COVID-19 atualizadas frequentemente</p> {% endcomment %}
+
+<img src="{{badge}}" class="badge"/>
+
 <p id="top" class="top">Estatísticas atualizadas em:<br>{{lastmodified.last_modified_data}}</p>
 
 {% comment %} <div class="icon-bar">

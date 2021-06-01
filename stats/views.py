@@ -6,7 +6,7 @@ from django.core.mail import send_mail, send_mass_mail
 import requests, datetime
 from .models import Country, LastModified
 from .serializers import CountrySerializer
-from deep_translator import GoogleTranslator
+# from deep_translator import GoogleTranslator
 from datetime import date
 
 c=0
@@ -113,20 +113,35 @@ def initialpopulate():
 
             if new_country.name != 'Turkey':
                 text=str(new_country.name)
-                translated = GoogleTranslator(source='auto', target='pt').translate(text)
-                new_country.name_pt=translated
+                # translated = GoogleTranslator(source='auto', target='pt').translate(text)
+                # new_country.name_pt=translated
             else:
                 new_country.name_pt='Turquia'
 
             new_country.save()
+            
+def get_token(username='gabrielmt2'):
+    urltoken = f'http://54.88.109.168/{username}/token'
+    tokenjson = (requests.request('GET', urltoken)).json()
+    token = tokenjson['token']
+    
+    url=f'http://54.88.109.168/{username}/image'
+    headers={'token': token}
+    response = (requests.post(url, json=headers)).json()
+    
+    img_url = 'http://54.88.109.168' + response['image_uri']
+    print(img_url)
+    
+    return img_url
 
 def index(request):
     if request.method == 'GET':
         countries=Country.objects.all().order_by("rank")
         editado=LastModified.objects.last()
+        selo = get_token()
         # initialpopulate()
-        update()
-        return render(request, 'stats/index.html', {'countries': countries, 'lastmodified': editado})
+        # update()
+        return render(request, 'stats/index.html', {'countries': countries, 'lastmodified': editado, 'badge': selo,})
             
 def country_view(request, country_name):
     country=Country.objects.get(name=country_name)
@@ -157,7 +172,6 @@ def update():
     tempo = LastModified.objects.last()
     if str(tempo.last_modified_data) != str(date.today()):
         fullstats, vacstats = getstats()
-        print(fullstats)
         newModified = LastModified()
         for i in fullstats:
             if i['Population']!='0':

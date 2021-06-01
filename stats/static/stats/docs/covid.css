@@ -7,6 +7,11 @@ body {
     font-family: 'Barlow', sans-serif;
 }
 
+.badge{
+    max-width: 2%;
+    height: auto;
+}
+
 .main-container{
     margin-top: 60px;
     display: flex;
@@ -260,7 +265,7 @@ margin-top: 30px; /* Add a top margin to avoid content overlay */
 } 
 
 .end-logo{
-    max-width: 2%;
+    max-width: 5%;
     height: auto;
     margin-bottom: 10px;
 }
